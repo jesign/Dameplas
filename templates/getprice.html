@@ -1,0 +1,33 @@
+<h2>Acrylic Plaques</h2>
+<div class="row" ng-controller="getPriceController as getprice">
+    <div class="col m6 l6">
+        <h4>Nearest PriceList</h4>
+        <table class="responsive-table bordered centered highlight">
+            <thead>
+                <tr>
+                    <th>Height</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="nd in getprice.nearestData">
+                <tr class="{{ getprice.height == nd.x ? 'blue lighten-4' : null }}">
+                    <td>{{nd.x}}</td>
+                    <td>{{nd.y}}</td>
+                </tr>
+            </tbody>
+        </table>
+            
+    </div>
+    <div class="col m6 l6">
+        <div class="input-field">
+            <input placeholder="inches" id="first_name" type="text" class="validate" ng-model="getprice.height" ng-keyup="getprice.getPrice()">
+            <label for="first_name">Height</label>
+        </div>
+        <h4>Estimated Price: </h4>
+        <h3 class="blue-text right">{{ getprice.predictedPrice }}</h3>
+    </div>
+   <!--   <button class="btn waves-effect waves-light" name="action" ng-click="">Submit
+        <i class="material-icons right">send</i>
+    </button> -->
+</div>
+        
